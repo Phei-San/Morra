@@ -9,6 +9,8 @@ import { loadStdlib } from '@reach-sh/stdlib';
 const reach = loadStdlib(process.env);
 
 const fingerToInt = {'ZERO': 0, 'ONE': 1, 'TWO': 2, 'THREE': 3, 'FOUR': 4, 'FIVE': 5}
+const guessToInt = {'ZERO': 0, 'ONE': 1, 'TWO': 2, 'THREE': 3, 'FOUR': 4, 'FIVE': 5,
+                    'SIX': 6, 'SEVEN': 7, 'EIGHT': 8, 'NINE': 9, 'TEN': 10}
 const intToOutcome = ['Faufau wins!', 'Draw!', 'Paupau wins!']
 const {standardUnit} = reach;
 const defaults = {defaultFundAmt: '10', defaultWager: '3', standardUnit};
@@ -52,10 +54,20 @@ class Player extends React.Component {
     this.setState({view: 'WaitingForResults', finger});
     return fingerToInt[finger];
   }
+  async getGuess() { // Fun([], UInt)
+    const guess = await new Promise(resolveGuessP => {
+      this.setState({view: 'GetGuess', playable: true, resolveGuessP});
+    });
+    this.setState({view: 'WaitingForResults', guess});
+    return guessToInt[guess];
+  }
+  seeWinning(i) {this.setState({view: 'Win', winningNum: i})}
   seeOutcome(i) { this.setState({view: 'Done', outcome: intToOutcome[i]}); }
   informTimeout() { this.setState({view: 'Timeout'}); }
   playFinger(finger) { this.state.resolveFingerP(finger); }
+  playGuess(guess) { this.state.resolveGuessP(guess); }
 }
+
 
 class Deployer extends Player {
   constructor(props) {
