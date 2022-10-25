@@ -5,97 +5,27 @@ const exports = {};
 // Player views must be extended.
 // It does not have its own Wrapper view.
 
-exports.GetFinger = class extends React.Component {
+exports.GetHand = class extends React.Component {
   render() {
-    const {parent, playable, finger} = this.props;
+    const {parent, playable, hand} = this.props;
     return (
       <div>
-        {finger ? 'It was a draw! Pick again.' : ''}
+        {hand ? 'It was a draw! Pick again.' : ''}
         <br />
         {!playable ? 'Please wait...' : ''}
         <br />
         <button
           disabled={!playable}
-          onClick={() => parent.playFinger('ZERO')}
-        >Zero</button>
+          onClick={() => parent.playHand('ROCK')}
+        >Rock</button>
         <button
           disabled={!playable}
-          onClick={() => parent.playFinger('ONE')}
-        >One</button>
+          onClick={() => parent.playHand('PAPER')}
+        >Paper</button>
         <button
           disabled={!playable}
-          onClick={() => parent.playFinger('TWO')}
-        >Two</button>
-        <button
-          disabled={!playable}
-          onClick={() => parent.playFinger('THREE')}
-        >Three</button>
-        <button
-          disabled={!playable}
-          onClick={() => parent.playFinger('FOUR')}
-        >Four</button>
-        <button
-          disabled={!playable}
-          onClick={() => parent.playFinger('FIVE')}
-        >Five</button>
-      </div>
-    );
-  }
-}
-
-exports.GetGuess = class extends React.Component {
-  render() {
-    const {parent, playable, guess} = this.props;
-    return (
-      <div>
-        {guess ? 'It was a draw! Pick again.' : ''}
-        <br />
-        {!playable ? 'Please wait...' : ''}
-        <br />
-        <button
-          disabled={!playable}
-          onClick={() => parent.playGuess('ZERO')}
-        >Zero</button>
-        <button
-          disabled={!playable}
-          onClick={() => parent.playGuess('ONE')}
-        >One</button>
-        <button
-          disabled={!playable}
-          onClick={() => parent.playGuess('TWO')}
-        >Two</button>
-        <button
-          disabled={!playable}
-          onClick={() => parent.playGuess('THREE')}
-        >Three</button>
-        <button
-          disabled={!playable}
-          onClick={() => parent.playGuess('FOUR')}
-        >Four</button>
-        <button
-          disabled={!playable}
-          onClick={() => parent.playGuess('FIVE')}
-        >Five</button>
-         <button
-          disabled={!playable}
-          onClick={() => parent.playGuess('SIX')}
-        >Six</button>
-         <button
-          disabled={!playable}
-          onClick={() => parent.playGuess('SEVEN')}
-        >Seven</button>
-         <button
-          disabled={!playable}
-          onClick={() => parent.playGuess('EIGHT')}
-        >Eight</button>
-         <button
-          disabled={!playable}
-          onClick={() => parent.playGuess('NINE')}
-        >Nine</button>
-         <button
-          disabled={!playable}
-          onClick={() => parent.playGuess('TEN')}
-        >Ten</button>
+          onClick={() => parent.playHand('SCISSORS')}
+        >Scissors</button>
       </div>
     );
   }

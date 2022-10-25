@@ -13,7 +13,7 @@ const guessToInt = {'ZERO': 0, 'ONE': 1, 'TWO': 2, 'THREE': 3, 'FOUR': 4, 'FIVE'
                     'SIX': 6, 'SEVEN': 7, 'EIGHT': 8, 'NINE': 9, 'TEN': 10}
 const intToOutcome = ['Faufau wins!', 'Draw!', 'Paupau wins!']
 const {standardUnit} = reach;
-const defaults = {defaultFundAmt: '10', defaultWager: '3', standardUnit};
+const defaults = {defaultFundAmt: '10', defaultWager: '5', standardUnit};
 
 import { ALGO_MyAlgoConnect as MyAlgoConnect } from '@reach-sh/stdlib';
 reach.setWalletFallback(reach.walletFallback({

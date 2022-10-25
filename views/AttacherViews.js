@@ -1,5 +1,5 @@
 import React from 'react';
-import PlayerViews from './PlayerViews.js';
+import PlayerViews from './PlayerViews';
 
 const exports = {...PlayerViews};
 
@@ -8,7 +8,7 @@ exports.Wrapper = class extends React.Component {
     const {content} = this.props;
     return (
       <div className="Attacher">
-        <h2>Attacher (Paupau)</h2>
+        <h2>Attacher (Bob)</h2>
         {content}
       </div>
     );
